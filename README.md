@@ -15,7 +15,7 @@ The lab itself (the domain controller, Splunk, and Sysmon) comes from my other r
 
 Before any of this worked I had to fix something I skipped in my original lab setup. DC01 was not sending any logs to Splunk. The port and firewall on my laptop were already set up, and the outputs.conf on DC01 already pointed at my laptop. The problem was that DC01 had no inputs.conf, so the forwarder had nothing to send. I made one for the Security, System, and Application logs, restarted the forwarder, and DC01 finally showed up.
 
-![DC01 logs in Splunk](screenshots/forwarding-working.png)
+![DC01 logs in Splunk](screenshots/forwarding-working(1).png)
 
 ## Detection 1: Brute force logins
 
