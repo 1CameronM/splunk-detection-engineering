@@ -1,5 +1,3 @@
-# Splunk-Detection-Engineering
-Three Splunk detections mapped to MITRE ATT&amp;CK, built and tested in my AD home lab
 # Splunk Detection Engineering Lab
 
 This project is about writing detections instead of just collecting logs. I picked three common attacks, ran each one in my Active Directory lab, and wrote a Splunk search that catches it. Each detection is matched to MITRE ATT&CK.
