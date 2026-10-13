@@ -15,7 +15,7 @@ The lab itself (the domain controller, Splunk, and Sysmon) comes from my other r
 
 Before any of this worked I had to fix something I skipped in my original lab setup. DC01 was not sending any logs to Splunk. The port and firewall on my laptop were already set up, and the outputs.conf on DC01 already pointed at my laptop. The problem was that DC01 had no inputs.conf, so the forwarder had nothing to send. I made one for the Security, System, and Application logs, restarted the forwarder, and DC01 finally showed up.
 
-![DC01 logs in Splunk](screenshots/forwarding-working(1).png)
+![DC01 logs in Splunk](forwarding-working%20%281%29.png)
 
 ## Detection 1: Brute force logins
 
@@ -37,7 +37,7 @@ index=* host=DC01 source="WinEventLog:Security" EventCode=4625
 
 **Result:** jsmith showed up with 12 failures, all within about a second of each other. The source IP was ::1 because I ran the attack from DC01 itself.
 
-![Brute force detection](screenshots/detection1-bruteforce.png)
+![Brute force detection](detection1-bruteforce.png)
 
 ## Detection 2: Encoded PowerShell
 
@@ -59,7 +59,7 @@ index=* host=DC01 source="WinEventLog:Microsoft-Windows-Sysmon/Operational" Even
 
 **Result:** All three runs showed up. The parent process was powershell.exe since I started it from a PowerShell window. In a real attack it would probably be something sketchier, like Word or a script.
 
-![PowerShell detection](screenshots/detection2-powershell.png)
+![PowerShell detection](detection2-powershell.png)
 
 ## Detection 3: New account added to Domain Admins
 
@@ -84,7 +84,7 @@ index=* host=DC01 source="WinEventLog:Security" (EventCode=4720 OR EventCode=472
 
 **Result:** One row for svc.backup, added to Domain Admins by Administrator about a second after it was created. I deleted the account after testing.
 
-![New admin detection](screenshots/detection3-newadmin.png)
+![New admin detection](detection3-newadmin.png)
 
 ## Problems I ran into
 
